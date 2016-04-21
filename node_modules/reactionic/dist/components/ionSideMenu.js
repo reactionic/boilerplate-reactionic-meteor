@@ -1,0 +1,40 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _classnames = require('classnames');
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var IonSideMenu = _react2.default.createClass({
+  displayName: 'IonSideMenu',
+
+  propTypes: {
+    side: _react2.default.PropTypes.string,
+    customClasses: _react2.default.PropTypes.string
+  },
+  getDefaultProps: function getDefaultProps() {
+    return {
+      side: 'left',
+      customClasses: ''
+    };
+  },
+  render: function render() {
+    var classes = (0, _classnames2.default)('snap-drawer', 'menu-' + this.props.side, 'snap-drawer-' + this.props.side, this.props.customClasses);
+    return _react2.default.createElement(
+      'div',
+      { className: classes },
+      this.props.children
+    );
+  }
+});
+
+exports.default = IonSideMenu;
