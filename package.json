@@ -17,7 +17,6 @@
     "react-addons-pure-render-mixin": "^15.0.0",
     "react-dom": "^15.0.0",
     "react-router": "^2.0.0",
-    "react-slick": "git://github.com/akiran/react-slick.git#6eb41de1e0c9d3f86305fcf7d5d0585d576a281e",
     "react-static-container": "^1.0.0",
     "reactionic": "0.2.0"
   },
