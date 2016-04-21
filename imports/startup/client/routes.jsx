@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route, IndexRoute, IndexRedirect, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 // route components
 import AppContainer from '../../ui/containers/AppContainer.jsx';
