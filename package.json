@@ -9,7 +9,6 @@
     "autoprefixer": "^6.3.1",
     "classnames": "^2.2.3",
     "faker": "^3.0.1",
-    "history": "^1.17.0",
     "jquery": "^2.2.3",
     "lodash": "^4.5.1",
     "moment": "^2.13.0",
