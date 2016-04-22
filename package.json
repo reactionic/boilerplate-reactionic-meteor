@@ -18,7 +18,7 @@
     "react-dom": "^15.0.0",
     "react-router": "^2.0.0",
     "react-static-container": "^1.0.0",
-    "reactionic": "0.2.0"
+    "reactionic": "git://github.com/johnslemmer/reactionic.git"
   },
   "devDependencies": {
     "eslint": "^2.7.0",
