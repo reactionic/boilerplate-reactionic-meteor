@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import { IonNavView, IonView, IonNavBar, IonSideMenuContainer,
   IonSideMenus, IonSideMenu, IonSideMenuContent } from 'reactionic';
 
-const Layout = (props) => (
+const Layout = (props, context) => (
   <IonSideMenuContainer disable="right" {...props}>
     <IonSideMenus>
       <IonSideMenu customClasses="side-menu">
@@ -15,14 +15,14 @@ const Layout = (props) => (
             <Link
               to="/helloworld"
               className="item"
-              onClick={ () => { this.context.ionSnapper.toggle('left'); } }
+              onClick={ () => { context.ionSnapper.toggle('left'); } }
             >
             HelloWorld Page
             </Link>
             <Link
               to="/foobar"
               className="item"
-              onClick={ () => { this.context.ionSnapper.toggle('left'); } }
+              onClick={ () => { context.ionSnapper.toggle('left'); } }
             >
             Foobar Page
             </Link>
