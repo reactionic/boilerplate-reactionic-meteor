@@ -32,7 +32,7 @@ const Layout = (props) => (
     </IonSideMenus>
     <IonSideMenuContent>
       <IonNavBar customClasses="bar-dark"
-        title="ReactIonic Playground"
+        title="Boilerplate ReactIonic Meteor"
         {...props}
       />
 
