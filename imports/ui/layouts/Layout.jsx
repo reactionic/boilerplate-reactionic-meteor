@@ -1,35 +1,31 @@
 import React from 'react';
-import { IonNavView, IonView, IonNavBar, IonIcon, IonSideMenuContainer,
+import { Link } from 'react-router';
+import { IonNavView, IonView, IonNavBar, IonSideMenuContainer,
   IonSideMenus, IonSideMenu, IonSideMenuContent } from 'reactionic';
 
 const Layout = (props) => (
-  <IonSideMenuContainer {...props}>
+  <IonSideMenuContainer disable="right" {...props}>
     <IonSideMenus>
       <IonSideMenu customClasses="side-menu">
         <div className="bar bar-header bar-stable">
-          <h1 className="title">Left Menu</h1>
+          <h1 className="title">Side Menu</h1>
         </div>
         <div className="content has-header side-menu">
           <div className="list">
-            <div className="item item-icon-right"
-              onClick={ () => { this.context.ionSnapper.close(); } }
+            <Link
+              to="/"
+              className="item"
+              onClick={ () => { this.context.ionSnapper.toggle('left'); } }
             >
-              Close Me <IonIcon icon="ios-arrow-right" />
-            </div>
-          </div>
-        </div>
-      </IonSideMenu>
-      <IonSideMenu side="right" customClasses="side-menu">
-        <div className="bar bar-header bar-stable">
-          <h1 className="title">Right Menu</h1>
-        </div>
-        <div className="content has-header side-menu">
-          <div className="list">
-            <div className="item item-icon-left"
-              onClick={ () => { this.context.ionSnapper.close(); } }
+            HelloWorld Page
+            </Link>
+            <Link
+              to="/foobar"
+              className="item"
+              onClick={ () => { this.context.ionSnapper.toggle('left'); } }
             >
-              Close Me <IonIcon icon="ios-arrow-back" />
-            </div>
+            Foobar Page
+            </Link>
           </div>
         </div>
       </IonSideMenu>
