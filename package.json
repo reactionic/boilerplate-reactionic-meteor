@@ -16,9 +16,9 @@
     "react-addons-css-transition-group": "^15.0.0",
     "react-addons-pure-render-mixin": "^15.0.0",
     "react-dom": "^15.0.0",
-    "react-router": "^2.0.0",
+    "react-router": "^2.3.0",
     "react-static-container": "^1.0.0",
-    "reactionic": "git://github.com/johnslemmer/reactionic.git"
+    "reactionic": "^0.3.0"
   },
   "devDependencies": {
     "eslint": "^2.7.0",
