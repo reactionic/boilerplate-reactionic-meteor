@@ -13,7 +13,7 @@ const Layout = (props) => (
         <div className="content has-header side-menu">
           <div className="list">
             <Link
-              to="/"
+              to="/helloworld"
               className="item"
               onClick={ () => { this.context.ionSnapper.toggle('left'); } }
             >
