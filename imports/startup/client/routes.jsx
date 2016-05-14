@@ -7,7 +7,7 @@ import Body from '/imports/ui/layouts/Body.jsx';
 import AppContainer from '/imports/ui/containers/AppContainer.jsx';
 import Login from '/imports/ui/pages/Login.jsx';
 import Signup from '/imports/ui/pages/Signup.jsx';
-import AuthContainer from '/imports/ui/containers/AuthContainer.jsx';
+import Auth from '/imports/ui/layouts/Auth.jsx';
 import MainContainer from '/imports/ui/containers/MainContainer.jsx';
 import WelcomeContainer from '/imports/ui/containers/WelcomeContainer.jsx';
 import HelloWorld from '/imports/ui/pages/HelloWorld.jsx';
@@ -29,7 +29,7 @@ export default () => (
   <Router history={browserHistory}>
     <Route component={Body}>
       <Route component={AppContainer}>
-        <Route component={AuthContainer} onEnter={requireNoAuth}>
+        <Route component={Auth} onEnter={requireNoAuth}>
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
         </Route>
