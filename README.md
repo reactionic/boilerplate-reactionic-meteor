@@ -53,15 +53,15 @@ The technology stack I'm proposing to use...
 
 ### Fixtures
 
-Just so you all know, I have added an initial user of test/test so you can quickly hop in to main part of the app.  Be sure to remove that from =fixtures.js= if you use this as your boilerplate.
+Just so you all know, I have added an initial user of test/test so you can quickly hop in to main part of the app.  Be sure to remove that from `fixtures.js` if you use this as your boilerplate.
 
 ### Security
 
-I have already removed =insecure= and =autopublsh= to try and encourage developers to start thinking with methods and publicatins/subscriptions earlier.  It has been long [discussed and concluded](http://guide.meteor.com/security.html#allow-deny) that this is the best way to go.  But for initial protyping feel free to add them back in.  However, I would still encourage you to use `ReactMeteorData.createContainer` rather than making database queries in your components.
+I have already removed `insecure` and `autopublsh` to try and encourage developers to start thinking with methods and publicatins/subscriptions earlier.  It has been long [discussed and concluded](http://guide.meteor.com/security.html#allow-deny) that this is the best way to go.  But for initial protyping feel free to add them back in.  However, I would still encourage you to use `ReactMeteorData.createContainer` rather than making database queries in your components.
 
 ### File Structure
 
-The file structure is trying to abide by the Meteor guide with everything but the necessary stuff in `/imports`.  The following is a short description of each file and what it is accomplishing.
+The file structure is trying to abide by the Meteor guide with everything is in `/imports` except for a few files.  The following is a short description of each file and what it is accomplishing.
 
 ```
 ├── client
@@ -135,6 +135,6 @@ Feel free to contribute.  Make comments.  Offer pull requests.  Help me figure o
 
 ## Credits
 
-To the open-source community before me.
+To the open-source community before me!
 
-Especially to [Mark Pors](https://github.com/pors/) and React-Ionic.
+Especially to [Mark Pors](https://github.com/pors/) for React-Ionic.
