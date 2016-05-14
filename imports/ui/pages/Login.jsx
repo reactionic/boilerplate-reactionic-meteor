@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import React from 'react';
 import { Link } from 'react-router';
-import { IonList, IonItem } from 'reactionic';
+import { IonList, IonItem, IonButton } from 'reactionic';
 import Content from '/imports/ui/components/Content.jsx';
 
 export default class Login extends React.Component {
@@ -29,7 +29,7 @@ export default class Login extends React.Component {
   render() {
     return (
       <Content {...this.props}>
-        <form onSubmit={this.handleSubmit}>
+        <form>
           <IonList inset>
             <IonItem input>
               <input ref="username" type="text" placeholder="Username" />
@@ -38,8 +38,11 @@ export default class Login extends React.Component {
               <input ref="password" type="password" placeholder="Password" />
             </IonItem>
           </IonList>
-          {/* TODO: change this to IonButton once buttonType property is supported */}
-          <button type="submit" className="button button-full button-calm">Login</button>
+          <IonButton
+            expand="full"
+            color="calm"
+            onClick={this.handleSubmit}
+          >Login</IonButton>
         </form>
         <Link to="/signup">Need an account? Join Now</Link>
       </Content>

@@ -1,7 +1,7 @@
 import { Accounts } from 'meteor/accounts-base';
 import React from 'react';
 import { Link } from 'react-router';
-import { IonList, IonItem } from 'reactionic';
+import { IonList, IonItem, IonButton } from 'reactionic';
 import Content from '/imports/ui/components/Content.jsx';
 
 export default class Join extends React.Component {
@@ -40,7 +40,7 @@ export default class Join extends React.Component {
   render() {
     return (
       <Content {...this.props}>
-        <form onSubmit={this.handleSubmit}>
+        <form>
           <IonList inset>
             <IonItem input>
               <input ref="username" type="text" placeholder="Pick A Username" />
@@ -55,8 +55,11 @@ export default class Join extends React.Component {
               <input ref="confirm" type="password" placeholder="Confirm Password" />
             </IonItem>
           </IonList>
-          {/* TODO: change this to IonButton once buttonType property is supported */}
-          <button type="submit" className="button button-full button-calm">Create Account</button>
+          <IonButton
+            expand="full"
+            color="calm"
+            onClick={this.handleSubmit}
+          >Create Account</IonButton>
         </form>
         <Link to="/login">Have an account? Sign In</Link>
       </Content>
