@@ -1,6 +1,5 @@
 import { Meteor } from 'meteor/meteor';
 import React from 'react';
-import { Link } from 'react-router';
 import { IonSideMenu, IonList, IonItem } from 'reactionic';
 
 export default class SideMenu extends React.Component {
@@ -46,17 +45,14 @@ export default class SideMenu extends React.Component {
           <div className="scroll-content ionic-scroll">
             <div className="content overflow-scroll has-header">
               <IonList>
-                {/* TODO: change these to IonItem once you can have link and onClick */}
-                <Link
-                  to="/welcome"
-                  className="item"
+                <IonItem
+                  link="/welcome"
                   onClick={this.handleClick}
-                >Welcome</Link>
-                <Link
-                  to="/helloworld"
-                  className="item"
+                >Welcome</IonItem>
+                <IonItem
+                  link="/helloworld"
                   onClick={this.handleClick}
-                >Hello World</Link>
+                >Hello World</IonItem>
                 <IonItem
                   customClasses="item-assertive"
                   onClick={this.logout}
