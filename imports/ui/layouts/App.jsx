@@ -1,43 +1,78 @@
 import React from 'react';
-import { IonBody } from 'reactionic';
-import { getPlatform } from '../utils/helpers.jsx';
+import { IonSpinner } from 'reactionic';
+
+// these loading timeout ideas were taken from
+// https://github.com/meteor/todos/blob/react/imports/ui/layouts/App.jsx
+const CONNECTION_ISSUE_TIMEOUT = 5000;
+
+const noConnectionOverlay = (
+  <div>
+    <IonSpinner icon="spiral" customClasses="inloader spinner-light" />
+    <h2>TRYING TO CONNECT</h2>
+    <p>Please wait...</p>
+  </div>
+);
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      platformOverride: props.location.query.platformOverride,
+      showConnectionIssue: false,
+    };
+    this.popupError = this.popupError.bind(this);
+  }
+
+  getChildContext() {
+    return {
+      popupError: this.popupError,
     };
   }
 
+  componentDidMount() {
+    setTimeout(() => {
+      /* eslint-disable react/no-did-mount-set-state */
+      this.setState({ showConnectionIssue: true });
+    }, CONNECTION_ISSUE_TIMEOUT);
+  }
+
   componentWillReceiveProps(newProps) {
-    const newPlatformOverride = newProps.location.query.platformOverride;
-    if (newPlatformOverride) {
-      if (newPlatformOverride !== this.state.platformOverride) {
-        this.setState({ platformOverride: newPlatformOverride });
+    this.context.ionShowLoading(
+      this.state.showConnectionIssue && !newProps.isConnected,
+      {
+        backdrop: true,
+        customTemplate: noConnectionOverlay,
       }
-    }
+    );
+  }
+
+  popupError(errorMessage, errorObj = undefined) {
+    // TODO: figure out a way to only console.log this stuff when we are in
+    // development.  React accomplishes this somehow for proptypes validation
+    console.log(`Error: ${errorMessage} (object=${errorObj})`); // eslint-disable-line no-console
+    console.log(errorObj); // eslint-disable-line no-console
+    this.context.ionUpdatePopup({
+      popupType: 'alert',
+      title: 'Error',
+      template: errorMessage,
+      okText: 'OK',
+    });
   }
 
   render() {
-    const platform = getPlatform(this.state.platformOverride);
-
-    return (
-      <IonBody platform={platform} >
-        {this.props.children}
-      </IonBody>
-    );
+    return this.props.children;
   }
 }
 
 App.propTypes = {
-  user: React.PropTypes.object,      // current meteor user
-  connected: React.PropTypes.bool,   // server connection status
-  children: React.PropTypes.element, // matched child route component
-  location: React.PropTypes.object,  // current router location
-  params: React.PropTypes.object,    // parameters of the current route
+  children: React.PropTypes.element,
+  isConnected: React.PropTypes.bool,
 };
 
 App.contextTypes = {
-  router: React.PropTypes.object,
+  ionUpdatePopup: React.PropTypes.func,
+  ionShowLoading: React.PropTypes.func,
+};
+
+App.childContextTypes = {
+  popupError: React.PropTypes.func,
 };

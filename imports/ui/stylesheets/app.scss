@@ -3,11 +3,9 @@ $bar-dark-text: $react-blue;
 $dark: #000000;
 $positive: $react-blue;
 
-@import '{}/node_modules/reactionic/src/styles/_reactionic.scss';
+// this is from https://github.com/reactionic/reactionic-kitchensink/blob/master/app/client/styles/app.scss
 
-.bar-dark .button.button-clear {
-    color: $react-blue;
-}
+@import '{}/node_modules/reactionic/src/styles/_reactionic.scss';
 
 .stretch {
     height: 100%;
@@ -27,22 +25,6 @@ $positive: $react-blue;
   }
 }
 
-.slide-demo {
-    text-align: center;
-    padding-top: 200px;
-}
-.slide-demo.dark {
-    background-color: #444;
-    h3 {
-        color: $react-blue;
-    }
-}
-.slide-demo.blue {
-    background-color: $react-blue;
-    color: #000;
-}
-
-.side-menu {
-    background-color: $stable;
-    color: $dark;
+.bar-dark .button.button-clear {
+    color: $react-blue;
 }

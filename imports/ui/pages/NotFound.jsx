@@ -1,8 +1,8 @@
 import React from 'react';
-import { IonContent } from 'reactionic';
+import Content from '../components/Content.jsx';
 
 export default (props) => (
-  <IonContent {...props}>
-    <h1>Page Not Found</h1>
-  </IonContent>
+  <Content {...props}>
+    <h2>Not Found</h2>
+  </Content>
 );

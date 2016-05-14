@@ -1,8 +1,8 @@
 import React from 'react';
-import { IonContent } from 'reactionic';
+import Content from '../components/Content.jsx';
 
 export default (props) => (
-  <IonContent customClasses="" {...props}>
+  <Content {...props}>
     <h2>Hello World!</h2>
-  </IonContent>
+  </Content>
 );

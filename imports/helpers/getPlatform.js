@@ -1,7 +1,10 @@
 /* global cordova */
 import { Meteor } from 'meteor/meteor';
 
-function getPlatform(platformOverride) {
+// copied from https://github.com/reactionic/reactionic-kitchensink/blob/master/app/client/imports/components/utils/helpers.jsx
+// and then cleaned up because this will only be used within Meteor.
+
+export default function getPlatform(platformOverride) {
   const isCordova = Meteor.isCordova;
   const iOS = {
     isIOS: true,
@@ -43,6 +46,3 @@ function getPlatform(platformOverride) {
     name: 'Web',
   };
 }
-
-
-export { getPlatform };

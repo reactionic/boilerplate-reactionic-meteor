@@ -11,14 +11,17 @@
     "faker": "^3.0.1",
     "jquery": "^2.2.3",
     "lodash": "^4.5.1",
+    "meteor-node-stubs": "^0.2.3",
     "moment": "^2.13.0",
     "react": "^15.0.0",
-    "react-addons-css-transition-group": "^15.0.0",
-    "react-addons-pure-render-mixin": "^15.0.0",
-    "react-dom": "^15.0.0",
-    "react-router": "^2.3.0",
+    "react": "^15.0.2",
+    "react-addons-css-transition-group": "^15.0.2",
+    "react-addons-pure-render-mixin": "^15.0.2",
+    "react-addons-update": "^15.0.2",
+    "react-dom": "^15.0.2",
+    "react-router": "^2.4.0",
     "react-static-container": "^1.0.0",
-    "reactionic": "^0.3.0"
+    "reactionic": "^1.0.0"
   },
   "devDependencies": {
     "eslint": "^2.7.0",
@@ -49,7 +52,9 @@
       ],
       "meteor/template-names": [
         0
-      ]
+      ],
+      "import/no-unresolved": "off",
+      "no-underscore-dangle": "off"
     }
   },
   "postcss": {

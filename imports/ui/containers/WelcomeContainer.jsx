@@ -1,9 +1,10 @@
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
-import App from '../layouts/App.jsx';
+import Welcome from '../pages/Welcome.jsx';
 
 export default createContainer(() => (
+  // no need to subscribe here as it happens in MainContainer
   {
-    isConnected: Meteor.status().connected,
+    user: Meteor.user(),
   }
-), App);
+), Welcome);
