@@ -128,6 +128,7 @@ The file structure is trying to abide by the Meteor guide with everything is in 
 * Address some of the React-Ionic bugs.
   * `IonItem` should be able to take `to` and `onClick` properties at the same time.
   * Weird bug where context and doesn't come down on first load of certain pages leaving `has-header` to not get set and `ionSnapper` to still be null.  Standby on the issue number and hopefully a quick resolution.
+* I have an idea about a navigation stack component that will work in tandum with IonNavBar providing automatic analysis of when to show the back button over the root level menu button.
 
 ## Contribute
 
