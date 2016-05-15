@@ -57,4 +57,5 @@ export default class Main extends React.Component {
 Main.propTypes = {
   isLoading: React.PropTypes.bool,
   children: React.PropTypes.element,
+  isLoggedIn: React.PropTypes.bool,
 };
