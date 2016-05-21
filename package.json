@@ -21,7 +21,7 @@
     "react-dom": "^15.0.2",
     "react-router": "^2.4.0",
     "react-static-container": "^1.0.0",
-    "reactionic": "^1.0.0"
+    "reactionic": "^1.1.0"
   },
   "devDependencies": {
     "eslint": "^2.7.0",
