@@ -2,9 +2,7 @@
 
 NOTE: this is still under development.  But feel free to poke around.
 
-NOTE: using this with React-Ionic 1.0.0 has some minor issues.  Standby.
-
-A simple app to make getting started on reactionic-meteor apps easier.
+A simple app to make getting started on reactionic-meteor apps easier.  Think something like [BASE](https://github.com/themeteorchef/base) from the meteorchef.
 
 I have spent some time building an app, and thought it would be nice to share some of things I have learned through a boilerplate that could be useful to others getting started with hybrid mobile app development.
 
@@ -125,10 +123,8 @@ The file structure is trying to abide by the Meteor guide with everything is in 
   * Have a facebook login.
   * Reset password abilities etc.
 * Add some more dummy data.  Even something as simple as the click counter that gets stored.  Just to show more data examples.
-* Address some of the React-Ionic bugs.
-  * `IonItem` should be able to take `to` and `onClick` properties at the same time.
-  * Weird bug where context and doesn't come down on first load of certain pages leaving `has-header` to not get set and `ionSnapper` to still be null.  Standby on the issue number and hopefully a quick resolution.
 * I have an idea about a navigation stack component that will work in tandum with IonNavBar providing automatic analysis of when to show the back button over the root level menu button.
+* I'm also working on a `ValidatedPublication` much like [mdg:ValidatedMethod](https://github.com/meteor/validated-method) that I think would be helpful to most people.  I'm sure meteor will make one themselves eventually.
 
 ## Contribute
 
