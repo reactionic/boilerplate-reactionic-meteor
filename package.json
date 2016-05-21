@@ -24,8 +24,10 @@
     "reactionic": "^1.1.0"
   },
   "devDependencies": {
-    "eslint": "^2.7.0",
+    "eslint": "^2.10.2",
     "eslint-config-airbnb": "^7.0.0",
+    "eslint-plugin-import": "^1.8.0",
+    "eslint-import-resolver-meteor": "^0.2.3",
     "eslint-plugin-jsx-a11y": "^0.6.2",
     "eslint-plugin-meteor": "^3.4.0",
     "eslint-plugin-react": "^4.3.0"
@@ -33,28 +35,43 @@
   "eslintConfig": {
     "parserOptions": {
       "ecmaVersion": 6,
-      "sourceType": "module"
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
     },
     "plugins": [
-      "meteor"
+      "meteor",
+      "react"
     ],
     "extends": [
       "airbnb",
-      "plugin:meteor/recommended"
+      "plugin:meteor/recommended",
+      "plugin:react/recommended"
     ],
+    "globals": {
+      "server": false,
+      "browser": false,
+      "expect": false
+    },
     "rules": {
-      "meteor/eventmap-params": [
-        2,
+      "react/display-name": 0,
+      "no-underscore-dangle": [
+        "error",
         {
-          "eventParamName": "event",
-          "templateInstanceParamName": "instance"
+          "allowAfterThis": true,
+          "allow": [
+            "_id",
+            "_ensureIndex",
+            "_verifyEmailToken",
+            "_resetPasswordToken",
+            "_name"
+          ]
         }
-      ],
-      "meteor/template-names": [
-        0
-      ],
-      "import/no-unresolved": "off",
-      "no-underscore-dangle": "off"
+      ]
+    },
+    "settings": {
+      "import/resolver": "meteor"
     }
   },
   "postcss": {
