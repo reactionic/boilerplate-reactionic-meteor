@@ -1,0 +1,129 @@
+#!/usr/bin/env node
+/* eslint-disable no-console */
+'use strict'; // eslint-disable-line
+
+// copied from https://github.com/lpender/meteor-assets/blob/master/meteor-assets.js
+
+console.log(process.cwd());
+
+const fs = require('fs');
+const gm = require('gm').subClass({ imageMagick: true });
+
+
+const icons = [
+  { target: 'public/favicon', size: '64x64' },
+  { target: 'public/icons/iphone_2x', size: '120x120' },
+  { target: 'public/icons/iphone_3x', size: '180x180' },
+  { target: 'public/icons/ipad', size: '76x76' },
+  { target: 'public/icons/ipad_2x', size: '152x152' },
+  { target: 'public/icons/ipad_pro', size: '167x167' },
+  { target: 'public/icons/ios_settings', size: '29x29' },
+  { target: 'public/icons/ios_settings_2x', size: '58x58' },
+  { target: 'public/icons/ios_settings_3x', size: '87x87' },
+  { target: 'public/icons/ios_spotlight', size: '40x40' },
+  { target: 'public/icons/ios_spotlight_2x', size: '80x80' },
+  { target: 'public/icons/android_mdpi', size: '48x48' },
+  { target: 'public/icons/android_hdpi', size: '72x72' },
+  { target: 'public/icons/android_xhdpi', size: '96x96' },
+  { target: 'public/icons/android_xxhdpi', size: '144x144' },
+  { target: 'public/icons/android_xxxhdpi', size: '192x192' },
+];
+
+const splashes = [
+  { target: 'public/splashes/iphone_2x', size: '640x960' },
+  { target: 'public/splashes/iphone5', size: '640x1136' },
+  { target: 'public/splashes/iphone6', size: '750x1334' },
+  { target: 'public/splashes/iphone6p_portrait', size: '1242x2208' },
+  { target: 'public/splashes/iphone6p_landscape', size: '2208x1242' },
+  { target: 'public/splashes/ipad_portrait', size: '768x1024' },
+  { target: 'public/splashes/ipad_portrait_2x', size: '1536x2048' },
+  { target: 'public/splashes/ipad_landscape', size: '1024x768' },
+  { target: 'public/splashes/ipad_landscape_2x', size: '2048x1536' },
+  { target: 'public/splashes/android_ldpi_landscape', size: '320x200' },
+  { target: 'public/splashes/android_mdpi_portrait', size: '320x480' },
+  { target: 'public/splashes/android_mdpi_landscape', size: '480x320' },
+  { target: 'public/splashes/android_hdpi_portrait', size: '480x800' },
+  { target: 'public/splashes/android_hdpi_landscape', size: '800x480' },
+  { target: 'public/splashes/android_xhdpi_portrait', size: '720x1280' },
+  { target: 'public/splashes/android_xhdpi_landscape', size: '1280x720' },
+  { target: 'public/splashes/android_xxhdpi_portrait', size: '1080x1440' },
+  { target: 'public/splashes/android_xxhdpi_landscape', size: '1440x1080' },
+];
+
+function getSize(image) {
+  const sizes = image.size.split('x');
+  return { width: parseInt(sizes[0], 10), height: parseInt(sizes[1], 10) };
+}
+
+// source file, target directory, image profile
+function resize(source, image) {
+  const icon = gm(source);
+  const target = image.target;
+  const imageSize = getSize(image);
+  const width = imageSize.width;
+  const height = imageSize.height;
+
+  icon.resize(width, height).write(
+    `${target}.png`,
+    (err) => {
+      if (err) {
+        console.log(err);
+        console.log('Quitting because of an error');
+      } else {
+        console.log(`Wrote ${target}`);
+      }
+    });
+}
+
+function crop(source, image) {
+  let size = undefined;
+  const splash = gm(source);
+  const target = image.target;
+  const imageSize = getSize(image);
+  const width = imageSize.width;
+  const height = imageSize.height;
+
+  // square up so that it cuts off as little as possible
+  if (height > width) {
+    splash.resize(height, height);
+
+    size = height;
+  } else {
+    splash.resize(width, width);
+
+    size = width;
+  }
+
+  // calculate x and y offset
+  const xOffset = (size / 2) - (width / 2);
+  const yOffset = (size / 2) - (height / 2);
+
+  splash.crop(width, height, xOffset, yOffset).write(
+    `${target}.png`,
+    (err) => {
+      if (err) {
+        console.log(err);
+        console.log('Quitting because of an error');
+      } else {
+        console.log(`Wrote ${target}`);
+      }
+    });
+}
+
+// Run the code
+
+if (!fs.existsSync(`${__dirname}/public/icons`)) {
+  fs.mkdirSync(`${__dirname}/public/icons`);
+}
+
+if (!fs.existsSync(`${__dirname}/public/splashes`)) {
+  fs.mkdirSync(`${__dirname}/public/splashes`);
+}
+
+icons.forEach((icon) => {
+  resize('resources/icon.png', icon);
+});
+
+splashes.forEach((splash) => {
+  crop('resources/splash.png', splash);
+});
