@@ -30,7 +30,7 @@ meteor run
 
 The technology stack I'm proposing to use...
 
-* [Meteor](https://www.meteor.com/) >= 1.3.0 
+* [Meteor](https://www.meteor.com/) >= 1.3.0
   * With all its awesome reactive data at the core
   * 1.3 added incredible support for using any NPM module
   * 1.3 also added an incredbile best practices [guide](http://guide.meteor.com/)
@@ -56,6 +56,10 @@ Just so you all know, I have added an initial user of test/test so you can quick
 ### Security
 
 I have already removed `insecure` and `autopublsh` to try and encourage developers to start thinking with methods and publicatins/subscriptions earlier.  It has been long [discussed and concluded](http://guide.meteor.com/security.html#allow-deny) that this is the best way to go.  But for initial protyping feel free to add them back in.  However, I would still encourage you to use `ReactMeteorData.createContainer` rather than making database queries in your components.
+
+### ValidatedPublication
+
+I really like [mdg:ValidatedMethod](https://github.com/meteor/validated-method).  And I think there should be something like it for publications.  I have created just that.  It is pretty much a copy of validated method but it works.  I would love to add some more usefulness to this in the future (like turn it in to a package, make it have some usefulness like I documented [here](https://github.com/meteor/validated-method/issues/51))
 
 ### File Structure
 
@@ -85,7 +89,7 @@ The file structure is trying to abide by the Meteor guide with everything is in 
 │   └── ui
 │       ├── components
 │       │   ├── AbsoluteMiddle.jsx # nice helper component
-│       │   ├── Content.jsx # wrapper component for parenting main content pages.  Provides automatic loading spinner if needed and correctly sets up IonContent 
+│       │   ├── Content.jsx # wrapper component for parenting main content pages.  Provides automatic loading spinner if needed and correctly sets up IonContent
 │       │   ├── LoadingDiv.jsx # Loading spinner to wrap things with that might need time to load.
 │       │   ├── NavMenuButton.jsx # nav bar button to open side menu
 │       │   └── SideMenu.jsx # side menu
@@ -124,8 +128,6 @@ The file structure is trying to abide by the Meteor guide with everything is in 
   * Reset password abilities etc.
 * Add some more dummy data.  Even something as simple as the click counter that gets stored.  Just to show more data examples.
 * I have an idea about a navigation stack component that will work in tandum with IonNavBar providing automatic analysis of when to show the back button over the root level menu button.
-* I'm also working on a `ValidatedPublication` much like [mdg:ValidatedMethod](https://github.com/meteor/validated-method) that I think would be helpful to most people.  I'm sure meteor will make one themselves eventually.
-
 ## Contribute
 
 Feel free to contribute.  Make comments.  Offer pull requests.  Help me figure out the best starting block for the most people.
