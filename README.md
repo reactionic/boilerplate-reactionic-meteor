@@ -128,6 +128,7 @@ The file structure is trying to abide by the Meteor guide with everything is in 
 
 ## TODOs
 
+* add good testing examples.  See [themeteorchef](https://themeteorchef.com/snippets/acceptance-testing-basics-with-chimp/)
 * Have a nice clean `useraccounts:unstyled` modeled in this app.
   * Have a facebook login.
   * Reset password abilities etc.
