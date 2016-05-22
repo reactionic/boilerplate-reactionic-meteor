@@ -1,7 +1,5 @@
 # boilerplate-reactionic-meteor
 
-NOTE: this is still under development.  But feel free to poke around.
-
 A simple app to make getting started on reactionic-meteor apps easier.  Think something like [BASE](https://github.com/themeteorchef/base) from the meteorchef.
 
 I have spent some time building an app, and thought it would be nice to share some of things I have learned through a boilerplate that could be useful to others getting started with hybrid mobile app development.
@@ -39,7 +37,7 @@ The technology stack I'm proposing to use...
 * [React-Router](https://github.com/reactjs/react-router) >= 2.4.0
   * Works well with React (but not required by react, FYI)
   * Required for used with React-Ionic
-* [React-Ionic](http://reactionic.github.io/) >= 1.0.0
+* [React-Ionic](http://reactionic.github.io/) >= 1.1.0
   * A wonderful wrapper of [Ionic CSS](http://ionicframework.com/docs/components/) into reusable React components
   * Accomplishes things angular accomplishes for fully Ionic apps. Yay, React > Angular ;)
     * [ReactCSSTransitionGroup](https://facebook.github.io/react/docs/animation.html) for nice CSS style transitions
@@ -128,6 +126,8 @@ The file structure is trying to abide by the Meteor guide with everything is in 
   * Reset password abilities etc.
 * Add some more dummy data.  Even something as simple as the click counter that gets stored.  Just to show more data examples.
 * I have an idea about a navigation stack component that will work in tandum with IonNavBar providing automatic analysis of when to show the back button over the root level menu button.
+* This could semi-easily be turned in to a complete todo list example like Meteor's [todos-react](https://github.com/meteor/todos/tree/react)
+
 ## Contribute
 
 Feel free to contribute.  Make comments.  Offer pull requests.  Help me figure out the best starting block for the most people.
