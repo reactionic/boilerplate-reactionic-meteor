@@ -11,7 +11,6 @@ meteor-base
 ecmascript
 es5-shim
 check
-tracker
 
 # standard libraries
 fourseven:scss
@@ -29,9 +28,6 @@ reywood:publish-composite
 mdg:validated-method
 mdg:validation-error
 
-# i18n
-#tap:i18n               # uncomment later for internationalization when ready
-
 # accounts
 accounts-password
 # TODO: add in facebook login
@@ -39,10 +35,9 @@ accounts-password
 # mobile
 crosswalk
 mobile-experience
-chriswessels:hammer
 
 # production            # uncomment these when the time comes
-#juliancwirko:postcss@1.0.0-beta.11
-#standard-minifier-js
-#ddp-rate-limiter
+juliancwirko:postcss@1.0.0-beta.11
+standard-minifier-js
+ddp-rate-limiter
 #app-prod-security      # when this gets uncommented you also need to copy https://github.com/meteor/todos/tree/react/packages/app-prod-security in the project/packages directory

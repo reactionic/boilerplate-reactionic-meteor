@@ -54,6 +54,10 @@ export default class SideMenu extends React.Component {
                   onClick={this.handleClick}
                 >Hello World</IonItem>
                 <IonItem
+                  link="/clickme"
+                  onClick={this.handleClick}
+                >Click Me</IonItem>
+                <IonItem
                   customClasses="item-assertive"
                   onClick={this.logout}
                 >Logout</IonItem>

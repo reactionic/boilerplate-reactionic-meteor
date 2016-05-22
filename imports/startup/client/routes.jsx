@@ -11,6 +11,7 @@ import Auth from '/imports/ui/layouts/Auth.jsx';
 import MainContainer from '/imports/ui/containers/MainContainer.jsx';
 import WelcomeContainer from '/imports/ui/containers/WelcomeContainer.jsx';
 import HelloWorld from '/imports/ui/pages/HelloWorld.jsx';
+import ClickMeContainer from '/imports/ui/containers/ClickMeContainer.jsx';
 import NotFound from '/imports/ui/pages/NotFound.jsx';
 
 function requireAuth(nextState, replace) {
@@ -37,6 +38,7 @@ export default () => (
           <IndexRedirect to="welcome" />
           <Route path="welcome" component={WelcomeContainer} />
           <Route path="helloworld" component={HelloWorld} />
+          <Route path="clickme" component={ClickMeContainer} />
         </Route>
         <Route path="*" component={NotFound} />
       </Route>
