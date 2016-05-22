@@ -16,9 +16,8 @@ const noConnectionOverlay = (
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      showConnectionIssue: false,
-    };
+    this.connectionTimeout = undefined;
+
     this.popupError = this.popupError.bind(this);
   }
 
@@ -29,20 +28,34 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    setTimeout(() => {
-      /* eslint-disable react/no-did-mount-set-state */
-      this.setState({ showConnectionIssue: true });
-    }, CONNECTION_ISSUE_TIMEOUT);
+    if (!this.props.isConnected) {
+      this.bufferConnectionIssueOverlay();
+    }
   }
 
   componentWillReceiveProps(newProps) {
-    this.context.ionShowLoading(
-      this.state.showConnectionIssue && !newProps.isConnected,
-      {
-        backdrop: true,
-        customTemplate: noConnectionOverlay,
+    // if we are in the process of losing the connection
+    if (this.props.isConnected && !newProps.isConnected) {
+      this.bufferConnectionIssueOverlay();
+    } else if (newProps.isConnected) {
+      if (!!this.connectionTimeout) {
+        clearTimeout(this.connectionTimeout);
+        this.connectionTimeout = undefined;
       }
-    );
+      this.context.ionShowLoading(false);
+    }
+  }
+
+  componentWillUnmount() {
+    this.context.ionShowLoading(false);
+  }
+
+  bufferConnectionIssueOverlay() {
+    this.connectionTimeout = setTimeout(() => {
+      this.context.ionShowLoading(
+        true, { backdrop: true, customTemplate: noConnectionOverlay });
+      this.connectionTimeout = undefined;
+    }, CONNECTION_ISSUE_TIMEOUT);
   }
 
   popupError(errorMessage, errorObj = undefined) {
