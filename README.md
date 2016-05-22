@@ -71,12 +71,17 @@ The file structure is trying to abide by the Meteor guide with everything is in 
 │   └── main.js # necessary for meteor.  provides entry point in to /imports
 ├── imports
 │   ├── api
+│   │   ├── clicks # collection, publication and methods used for tracking clicks
+│   │   │   ├── clicks.js
+│   │   │   ├── methods.js
+│   │   │   └── publications.js
 │   │   └── users
+│   │       ├── publications.js # a publication of only the logged in user
 │   │       ├── server
-│   │       │   ├── account-setup.js # setup how accounts get created.  need to add fields user object.
-│   │       │   └── publications.js # a publication of only the logged in user
+│   │       │   └── account-setup.js # setup how accounts get created.  need to add fields user object.
 │   │       └── users.js # schema for users and other need to have user initialization
 │   ├── helpers
+│   │   ├── ValidatedPublication.js # my attempt at doing what mdg:validated-method does for methods
 │   │   └── getPlatform.js # nice helper method to get the current platform, and also be able to fake it out during dev
 │   ├── startup
 │   │   ├── client
@@ -96,6 +101,7 @@ The file structure is trying to abide by the Meteor guide with everything is in 
 │       ├── containers # pass necessary data down to layouts or pages
 │       │   ├── AppContainer.jsx
 │       │   ├── AuthContainer.jsx
+│       │   ├── ClickMeContainer.jsx
 │       │   ├── MainContainer.jsx
 │       │   └── WelcomeContainer.jsx
 │       ├── layouts
@@ -104,11 +110,12 @@ The file structure is trying to abide by the Meteor guide with everything is in 
 │       │   ├── Body.jsx # layout for everything.  This is the top level route.  This is important to set up IonBody correctly as it is the brain to all of React-Ionic.
 │       │   └── Main.jsx # layout for all pages while logged in.  Provides side meu and nav bar etc.
 │       ├── pages
+│       │   ├── ClickMe.jsx # click me interactive page
 │       │   ├── HelloWorld.jsx # just shows the text
 │       │   ├── Login.jsx # login page
 │       │   ├── NotFound.jsx # obligatory 404 page
 │       │   ├── Signup.jsx # signup page
-│       │   └── Welcome.jsx # Welcome page.  Shows current user informatino
+│       │   └── Welcome.jsx # Welcome page.  Shows current user information
 │       └── stylesheets
 │           ├── app.scss # some good css for the app, imports necessary css from React-Ionic
 │           └── index.js # add more lines here for other stylesheet imports.  Sass, Less, doesn't matter as long as you have the correct meteor packages installed
