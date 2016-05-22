@@ -131,7 +131,6 @@ The file structure is trying to abide by the Meteor guide with everything is in 
 * Have a nice clean `useraccounts:unstyled` modeled in this app.
   * Have a facebook login.
   * Reset password abilities etc.
-* Add some more dummy data.  Even something as simple as the click counter that gets stored.  Just to show more data examples.
 * I have an idea about a navigation stack component that will work in tandum with IonNavBar providing automatic analysis of when to show the back button over the root level menu button.
 * This could semi-easily be turned in to a complete todo list example like Meteor's [todos-react](https://github.com/meteor/todos/tree/react)
 
