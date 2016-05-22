@@ -5,7 +5,7 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 // https://github.com/aldeed/meteor-collection2#attach-a-schema-to-meteorusers
 // But don't follow the above example when it comes to profile information.
 // See below.
-const UserSchema = new SimpleSchema({
+Meteor.users.schema = new SimpleSchema({
   username: {
     type: String,
     optional: true,
@@ -40,7 +40,7 @@ const UserSchema = new SimpleSchema({
   },
 });
 
-Meteor.users.attachSchema(UserSchema);
+Meteor.users.attachSchema(Meteor.users.schema);
 
 // Deny all client-side updates to user documents.  Protects against people
 // writing to profile. http://guide.meteor.com/accounts.html#dont-use-profile
@@ -48,7 +48,7 @@ Meteor.users.deny({
   update() { return true; },
 });
 
-Meteor.users.thisUserFields = {
+Meteor.users.currentUserFields = {
   username: 1,
   firstName: 1,
 };
