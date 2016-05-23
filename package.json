@@ -13,7 +13,6 @@
     "lodash": "^4.5.1",
     "meteor-node-stubs": "^0.2.3",
     "moment": "^2.13.0",
-    "react": "^15.0.0",
     "react": "^15.0.2",
     "react-addons-css-transition-group": "^15.0.2",
     "react-addons-pure-render-mixin": "^15.0.2",
