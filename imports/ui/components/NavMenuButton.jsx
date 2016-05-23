@@ -7,12 +7,12 @@ export default function NavMenuButton(props, context) {
       {...props}
       icon="ion-navicon-round"
       type="clear"
-      onClick={() => { context.ionGetSnapper().toggle('left'); }}
+      onClick={() => { context.ionSnapper.toggle('left'); }}
       customClasses="button-stage"
     />
   );
 }
 
 NavMenuButton.contextTypes = {
-  ionGetSnapper: React.PropTypes.func,
+  ionSnapper: React.PropTypes.object,
 };

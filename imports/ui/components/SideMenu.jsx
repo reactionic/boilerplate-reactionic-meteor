@@ -22,7 +22,7 @@ export default class SideMenu extends React.Component {
   handleClick() {
     // default is not being prevented so that this will close side menu
     // as well as navigate to the new link.
-    this.context.ionGetSnapper().toggle('left');
+    this.context.ionSnapper.toggle('left');
   }
 
   render() {
@@ -72,6 +72,6 @@ export default class SideMenu extends React.Component {
 
 SideMenu.contextTypes = {
   router: React.PropTypes.object,
-  ionGetSnapper: React.PropTypes.func,
+  ionSnapper: React.PropTypes.object,
   popupError: React.PropTypes.func,
 };
