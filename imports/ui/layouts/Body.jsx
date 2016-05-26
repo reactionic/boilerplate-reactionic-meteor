@@ -1,6 +1,6 @@
 import React from 'react';
 import { IonBody } from 'reactionic';
-import getPlatform from '/imports/helpers/getPlatform.js';
+import getPlatform from '/imports/lib/getPlatform.js';
 
 export default class Body extends React.Component {
   constructor(props) {
