@@ -1,4 +1,4 @@
-import ValidatedPublication from '/imports/helpers/ValidatedPublication.js';
+import ValidatedPublication from '/imports/lib/ValidatedPublication.js';
 import { Clicks } from './clicks.js';
 
 export const currentUser = new ValidatedPublication({
