@@ -18,11 +18,13 @@ meteor run
 ## Goals
 
 * Provide a good starting place to write hybrid mobile apps.
+* A good place to start for newbies to the whole technology stack.  There was a lot of stuff that I need to learn and something like this would have made the ramp up time a lot faster.
 * Try to abibe as much as possible to the official [Meteor Guide](http://guide.meteor.com/)
 * Provide a good example of data flow. [A really good idea](http://guide.meteor.com/react.html#using-createContainer).
   * The example to look at is `WelcomeContainer` and `Welcome` components in the source.
   * The point is to show that your UI components should have no notion on where information is coming from.  Information should just be passed in as properties and then reacted to.
   * `WelcomeContainer` accomplishes this by pulling the necessary user object from Meteor and the pass it on to `Welcome`.
+* Provide a good project base for meteor hybrid development apps.  This is by no means the only way to do things.  There are so many technologies you can use to accomplish hybrid mobile development.  This is one way.  Hope it helps
 
 ## The Stack
 
@@ -39,7 +41,7 @@ The technology stack I'm proposing to use...
   * Required for used with React-Ionic
 * [React-Ionic](http://reactionic.github.io/) >= 1.1.0
   * A wonderful wrapper of [Ionic CSS](http://ionicframework.com/docs/components/) into reusable React components
-  * Accomplishes things angular accomplishes for fully Ionic apps. Yay, React > Angular ;)
+  * Accomplishes things angular accomplishes for fully Ionic apps using other packages from around the web.
     * [ReactCSSTransitionGroup](https://facebook.github.io/react/docs/animation.html) for nice CSS style transitions
     * [Snap.js](https://github.com/jakiestfu/Snap.js/)
     * And more..
@@ -67,6 +69,14 @@ Thanks to [meteor-assets](https://github.com/lpender/meteor-assets) for how to d
 
 I have already removed `insecure` and `autopublsh` to try and encourage developers to start thinking with methods and publicatins/subscriptions earlier.  It has been long [discussed and concluded](http://guide.meteor.com/security.html#allow-deny) that this is the best way to go.  But for initial protyping feel free to add them back in.  However, I would still encourage you to use `ReactMeteorData.createContainer` rather than making database queries in your components.
 
+Also, this boilerplate provides a good example for limiting method calls to the server.  The idea was taken from from  [todos-react](https://github.com/meteor/todos/tree/react).
+
+### Linting
+
+`eslint` is all setup and configured with this project using airbnb's style guide and linting for React and meteor.  Just setup you editor to live analyze the files.  You can also run eslint from the command line to ananlyze your whole project.
+
+> To run eslint from the command line you will probably need to npm install -g certain packages that you don't have installed yet. Like `eslint-plugin-import` and `eslint-import-resolver-meteor`.
+
 ### ValidatedPublication
 
 I really like [mdg:ValidatedMethod](https://github.com/meteor/validated-method).  And I think there should be something like it for publications.  I have created just that.  It is pretty much a copy of validated method but it works.  I would love to add some more usefulness to this in the future (like turn it in to a package, make it have some usefulness like I documented [here](https://github.com/meteor/validated-method/issues/51))
@@ -90,7 +100,7 @@ The file structure is trying to abide by the Meteor guide with everything is in 
 │   │       ├── server
 │   │       │   └── account-setup.js # setup how accounts get created.  need to add fields user object.
 │   │       └── users.js # schema for users and other need to have user initialization
-│   ├── helpers
+│   ├── lib # place to put helpr-ish functionality
 │   │   ├── ValidatedPublication.js # my attempt at doing what mdg:validated-method does for methods
 │   │   └── getPlatform.js # nice helper method to get the current platform, and also be able to fake it out during dev
 │   ├── startup
@@ -147,12 +157,13 @@ The file structure is trying to abide by the Meteor guide with everything is in 
 
 ## TODOs
 
+* This could semi-easily be turned in to a complete todo list example like Meteor's [todos-react](https://github.com/meteor/todos/tree/react)
 * add good testing examples.  See [themeteorchef](https://themeteorchef.com/snippets/acceptance-testing-basics-with-chimp/)
 * Have a nice clean `useraccounts:unstyled` modeled in this app.
+  * check out [studiointeract's](https://github.com/studiointeract/accounts-ionic) library and see if that can be added in here.
   * Have a facebook login.
   * Reset password abilities etc.
 * I have an idea about a navigation stack component that will work in tandum with IonNavBar providing automatic analysis of when to show the back button over the root level menu button.
-* This could semi-easily be turned in to a complete todo list example like Meteor's [todos-react](https://github.com/meteor/todos/tree/react)
 
 ## Contribute
 
@@ -160,6 +171,6 @@ Feel free to contribute.  Make comments.  Offer pull requests.  Help me figure o
 
 ## Credits
 
-To the open-source community before me!
-
-Especially to [Mark Pors](https://github.com/pors/) for React-Ionic.
+* @johnslemmer
+* To the open-source community before me!
+* [Mark Pors](https://github.com/pors/) for putting together React-Ionic.

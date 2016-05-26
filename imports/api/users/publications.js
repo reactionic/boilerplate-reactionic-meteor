@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-import ValidatedPublication from '/imports/helpers/ValidatedPublication.js';
+import ValidatedPublication from '/imports/lib/ValidatedPublication.js';
 import './users.js';
 
 export const currentUser = new ValidatedPublication({
